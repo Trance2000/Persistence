@@ -1,9 +1,9 @@
 'use strict';
 
 const Hotels = require('../../models/hotel');
-const router = require('../index.js');
+const router = require('express').Router();
 
-router.get('/api/hotels', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Hotels.findAll()
   .then(function(allHotels) {
     res.json(allHotels);

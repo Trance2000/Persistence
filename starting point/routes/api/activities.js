@@ -1,11 +1,14 @@
 'use strict';
 
-const Activities = require('../../models/activity');
-const router = require('../index.js');
 
-router.get('/api/activities', (req, res, next) => {
+const router = require('express').Router();
+// const router = require('../index.js');
+const Activities = require('../../models/activity');
+
+router.get('/', (req, res, next) => {
   Activities.findAll()
   .then(function(allActs) {
+    console.log(allActs);
     res.json(allActs);
   })
   .catch(next);

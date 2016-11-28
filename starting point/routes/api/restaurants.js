@@ -1,9 +1,10 @@
 'use strict';
 
+const router = require('express').Router();
 const Restaurants = require('../../models/restaurant');
-const router = require('../index.js');
 
-router.get('/api/restaurants', (req, res, next) => {
+
+router.get('/', (req, res, next) => {
   Restaurants.findAll()
   .then(function(allRest) {
     res.json(allRest);
